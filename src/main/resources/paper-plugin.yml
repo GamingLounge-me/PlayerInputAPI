@@ -1,7 +1,7 @@
 name: PlayerInputAPI
-version: '${version}' 
+version: "${version}"
 main: me.gaminglounge.playerinputapi.PlayerInputAPI
-description: 
-api-version: '1.21' 
-authors: 
-  - "NAME" 
+description:
+api-version: "1.21.4"
+authors:
+  - "Jon1Games"

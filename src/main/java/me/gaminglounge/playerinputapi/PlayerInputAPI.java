@@ -1,18 +1,18 @@
-package me.gaminglounge.playerinputapi;  
- 
-import org.bukkit.plugin.PluginManager; 
+package me.gaminglounge.playerinputapi;
+
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import me.gaminglounge.playerinputapi.istener.ChatInputListener; 
- 
-public final class PlayerInputAPI extends JavaPlugin { 
- 
-    public static PlayerInputAPI INSTANCE; 
+import me.gaminglounge.playerinputapi.listener.ChatInputListener;
+
+public final class PlayerInputAPI extends JavaPlugin {
+
+    public static PlayerInputAPI INSTANCE;
     public InputManager manager;
- 
+
     @Override
     public void onLoad() {
-        INSTANCE = this; 
+        INSTANCE = this;
         manager = new InputManager();
     }
 
@@ -23,12 +23,12 @@ public final class PlayerInputAPI extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        
+
     }
 
     public void listener() {
         PluginManager pm = getServer().getPluginManager();
 
         pm.registerEvents(new ChatInputListener(), this);
-    } 
-} 
+    }
+}

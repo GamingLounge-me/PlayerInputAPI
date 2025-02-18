@@ -2,20 +2,19 @@ package me.gaminglounge.playerinputapi;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Consumer;
 
 import org.bukkit.entity.Player;
 
-import io.papermc.paper.event.player.AsyncChatEvent;
+import me.gaminglounge.playerinputapi.interfaced.PlayerChatEvent;
 
 public class InputManager {
-    private Map<Player, Consumer<AsyncChatEvent>> chatInputMap;
+    private Map<Player, PlayerChatEvent> chatInputMap;
 
     public InputManager() {
         chatInputMap = new HashMap<>();
     }
 
-    public void captureChatInputPlayer(Player p, Consumer<AsyncChatEvent> e) {
+    public void captureChatInputPlayer(Player p, PlayerChatEvent e) {
         chatInputMap.put(p, e);
     }
 
@@ -23,10 +22,10 @@ public class InputManager {
         chatInputMap.remove(p);
     }
 
-    public Consumer<AsyncChatEvent> getChatInputEvent(Player p) {
+    public PlayerChatEvent getChatInputEvent(Player p) {
         return chatInputMap.get(p);
     }
-    
+
     public boolean chatInputHasPlayer(Player p) {
         return chatInputMap.containsKey(p);
     }
